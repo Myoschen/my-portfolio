@@ -1,89 +1,69 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import IonIcon from '@reacticons/ionicons';
+import { AiOutlineRight, AiOutlineLeft } from 'react-icons/ai';
 
 const data = [
   {
+    id: 1,
     image: 'typing-speed.png',
     link: 'https://github.com/myoschen/typing-speed',
   },
   {
+    id: 2,
     image: 'react-chat-app.png',
     link: 'https://github.com/myoschen/react-chat-app',
   },
 ];
 
 let count = 0;
-let sliderInterval: NodeJS.Timeout;
 
 export default function Slider() {
-  const [current, setCurrent] = useState(0);
+  const [index, setIndex] = useState(0);
   const slideRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLAnchorElement>(null);
 
   const nextSlide = () => {
     count = (count + 1) % data.length;
-    setCurrent(count);
+    setIndex(count);
   };
 
   const prevSlide = () => {
     count = (count + data.length - 1) % data.length;
-    setCurrent(count);
+    setIndex(count);
   };
-
-  const playSlider = () => {
-    sliderInterval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-  };
-
-  const pauseSlider = () => {
-    clearInterval(sliderInterval);
-  };
-
-  useEffect(() => {
-    slideRef.current?.addEventListener('mouseenter', pauseSlider);
-    slideRef.current?.addEventListener('mouseleave', playSlider);
-
-    playSlider();
-    return () => {
-      pauseSlider();
-    };
-  }, []);
 
   return (
     <div
       ref={slideRef}
       className="relative w-full select-none h-[400px] md:h-[600px]"
     >
-      <a
-        href={data[current].link}
-        target="_blank"
-        rel="noreferrer"
-        className="aspect-video"
-      >
-        <Image
-          src={'/assets/projects/' + data[current].image}
-          layout="fill"
-          alt="project"
-          objectFit="cover"
-          className="rounded-md"
-        />
+      <a href={data[index].link} className="relative block w-full h-full">
+        {data.map((item) => (
+          <Image
+            key={item.id}
+            src={'/assets/projects/' + item.image}
+            layout="fill"
+            alt="project"
+            objectFit="cover"
+            className={`rounded-md ${
+              item.id === index + 1
+                ? 'transition-all opacity-100 duration-700 ease-in-out'
+                : 'opacity-0'
+            }`}
+          />
+        ))}
       </a>
-      <div className="absolute flex items-center justify-between w-full px-4 transform -translate-y-1/2 pointer-events-none top-1/2">
-        <button
-          className="pointer-events-auto btn btn-square"
-          onClick={prevSlide}
-        >
-          <IonIcon name="arrow-back" size="large" />
-        </button>
-        <button
-          className="pointer-events-auto btn btn-square"
-          onClick={nextSlide}
-        >
-          <IonIcon name="arrow-forward" size="large" />
-        </button>
-      </div>
+      <button
+        className="absolute btn btn-square top-1/2 left-4"
+        onClick={prevSlide}
+      >
+        <AiOutlineLeft size={24} />
+      </button>
+      <button
+        className="absolute btn btn-square top-1/2 right-4"
+        onClick={nextSlide}
+      >
+        <AiOutlineRight size={24} />
+      </button>
     </div>
   );
 }
