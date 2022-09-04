@@ -31,7 +31,7 @@ export default function Projects() {
           </h3>
         </div>
         <div className="mt-8">
-          <Slider />
+          <Slider duration={3000} />
         </div>
       </div>
     </div>

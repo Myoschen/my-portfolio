@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { AiOutlineRight, AiOutlineLeft } from 'react-icons/ai';
 
+let count = 0;
 const data = [
   {
     id: 1,
@@ -15,11 +16,12 @@ const data = [
   },
 ];
 
-let count = 0;
+interface SliderProps {
+  duration: number;
+}
 
-export default function Slider() {
+export default function Slider({ duration }: SliderProps) {
   const [index, setIndex] = useState(0);
-  const slideRef = useRef<HTMLDivElement>(null);
 
   const nextSlide = () => {
     count = (count + 1) % data.length;
@@ -31,11 +33,18 @@ export default function Slider() {
     setIndex(count);
   };
 
+  useEffect(() => {
+    let autoplay = setTimeout(
+      () => setIndex((prev) => (prev === data.length - 1 ? 0 : prev + 1)),
+      duration
+    );
+    return () => {
+      clearTimeout(autoplay);
+    };
+  }, [duration, index]);
+
   return (
-    <div
-      ref={slideRef}
-      className="relative w-full select-none h-[400px] md:h-[600px]"
-    >
+    <div className="relative w-full select-none h-[400px] md:h-[600px]">
       <a href={data[index].link} className="relative block w-full h-full">
         {data.map((item) => (
           <Image
