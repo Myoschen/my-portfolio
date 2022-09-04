@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import IonIcon from '@reacticons/ionicons';
@@ -25,14 +25,16 @@ export default function Navbar() {
     >
       <div className="flex-1">
         <Link href="/">
-          <Image
-            className="btn btn-ghost btn-circle"
-            src="/assets/Logo.png"
-            alt="Logo"
-            width={60}
-            height={60}
-            objectFit="cover"
-          />
+          <a>
+            <Image
+              className="btn btn-ghost btn-circle"
+              src="/assets/Logo.png"
+              alt="Logo"
+              width={60}
+              height={60}
+              objectFit="cover"
+            />
+          </a>
         </Link>
       </div>
       <div className="flex-none hidden lg:block">
@@ -81,26 +83,26 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/#about">
+              <Link href="#about">
                 <span className="text-lg font-medium tracking-wide">ABOUT</span>
               </Link>
             </li>
             <li>
-              <Link href="/#skills">
+              <Link href="#skills">
                 <span className="text-lg font-medium tracking-wide">
                   SKILLS
                 </span>
               </Link>
             </li>
             <li>
-              <Link href="/#projects">
+              <Link href="#projects">
                 <span className="text-lg font-medium tracking-wide">
                   PROJECTS
                 </span>
               </Link>
             </li>
             <li>
-              <Link href="/#contact">
+              <Link href="#contact">
                 <span className="text-lg font-medium tracking-wide">
                   CONTACT
                 </span>
