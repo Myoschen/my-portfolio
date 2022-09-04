@@ -17,7 +17,7 @@ export default function About() {
                 Practice makes perfect.
               </h3>
             </div>
-            <div className="mt-8 space-y-2 prose lg:prose-lg">
+            <div className="mt-8 prose md:prose-lg lg:prose-xl">
               <p>
                 I graduated from Tamkang University in the Department of
                 Computer Science and Information Engineering.
