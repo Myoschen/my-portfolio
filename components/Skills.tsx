@@ -8,7 +8,8 @@ import {
   SiNextdotjs,
   SiTailwindcss,
   SiPython,
-  SiGo,
+  SiVuedotjs,
+  SiDeno,
 } from 'react-icons/si';
 import IonIcon from '@reacticons/ionicons';
 
@@ -30,6 +31,10 @@ const list = [
     icon: <SiTypescript className="text-6xl" />,
   },
   {
+    label: 'Vue',
+    icon: <SiVuedotjs className="text-6xl" />,
+  },
+  {
     label: 'React',
     icon: <SiReact className="text-6xl" />,
   },
@@ -46,8 +51,8 @@ const list = [
     icon: <SiPython className="text-6xl" />,
   },
   {
-    label: 'Golang',
-    icon: <SiGo className="text-6xl" />,
+    label: 'Deno',
+    icon: <SiDeno className="text-6xl" />,
   },
 ];
 

@@ -27,17 +27,21 @@ export default function About() {
                 Programming languages such as JavaScript, Java, Python, etc.
               </p>
               <p>
-                However, I was exposed to web design because of the university
-                courses. So far I love web design.
+                However, due to university courses, I was exposed to web
+                front-end development. Until now, I still love web front-end
+                development.
               </p>
               <p>
                 Now, I am still improving my skills, such as learning React
-                framework, CSS typography, etc.
+                framework, Vue framework, CSS typography, etc.
               </p>
               <p>
                 In addition, I am also very interested in back-end technology.
-                Like I built my own API before using the Express framework and
-                the Heroku platform.
+                Like Deno, Node.js, etc.
+              </p>
+              <p>
+                So in the future, I will focus on the front-end. If I have spare
+                time, I will learn more about the back-end technology.
               </p>
             </div>
           </div>
