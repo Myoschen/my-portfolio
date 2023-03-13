@@ -12,6 +12,11 @@ const data = [
     image: 'social-media-app.png',
     link: 'https://github.com/Myoschen/social-media-app',
   },
+  {
+    id: 3,
+    image: 'muser-light.png',
+    link: 'https://github.com/Myoschen/muser',
+  },
 ];
 
 export default function Projects() {
