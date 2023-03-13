@@ -5,11 +5,10 @@ import {
   SiHtml5,
   SiCss3,
   SiReact,
-  SiNextdotjs,
   SiTailwindcss,
-  SiPython,
-  SiVuedotjs,
-  SiDeno,
+  SiGit,
+  SiFirebase,
+  SiElectron,
 } from 'react-icons/si';
 import IonIcon from '@reacticons/ionicons';
 
@@ -31,34 +30,30 @@ const list = [
     icon: <SiTypescript className="text-6xl" />,
   },
   {
-    label: 'Vue',
-    icon: <SiVuedotjs className="text-6xl" />,
+    label: 'Tailwind CSS',
+    icon: <SiTailwindcss className="text-6xl" />,
   },
   {
     label: 'React',
     icon: <SiReact className="text-6xl" />,
   },
   {
-    label: 'Next.js',
-    icon: <SiNextdotjs className="text-6xl" />,
+    label: 'Git',
+    icon: <SiGit className="text-6xl" />,
   },
   {
-    label: 'Tailwind CSS',
-    icon: <SiTailwindcss className="text-6xl" />,
+    label: 'Firebase',
+    icon: <SiFirebase className="text-6xl" />,
   },
   {
-    label: 'Python',
-    icon: <SiPython className="text-6xl" />,
-  },
-  {
-    label: 'Deno',
-    icon: <SiDeno className="text-6xl" />,
+    label: 'Electron',
+    icon: <SiElectron className="text-6xl" />,
   },
 ];
 
 export default function Skills() {
   return (
-    <div id="skills" className="min-h-screen my-12">
+    <section id="skills" className="min-h-screen my-12">
       <div className="px-8 mx-auto max-w-7xl">
         <h2 className="flex items-baseline gap-x-2">
           <IonIcon name="link" className="rotate-45 text-primary" />
@@ -76,6 +71,6 @@ export default function Skills() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

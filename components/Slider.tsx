@@ -3,50 +3,45 @@ import Image from 'next/image';
 import { AiOutlineRight, AiOutlineLeft } from 'react-icons/ai';
 
 let count = 0;
-const data = [
-  {
-    id: 1,
-    image: 'typing-speed.png',
-    link: 'https://github.com/myoschen/typing-speed',
-  },
-  {
-    id: 2,
-    image: 'react-chat-app.png',
-    link: 'https://github.com/myoschen/react-chat-app',
-  },
-];
+
+type ImageInfoType = {
+  id: number;
+  image: string;
+  link: string;
+};
 
 interface SliderProps {
+  images: ImageInfoType[];
   duration: number;
 }
 
-export default function Slider({ duration }: SliderProps) {
+export default function Slider({ images, duration }: SliderProps) {
   const [index, setIndex] = useState(0);
 
   const nextSlide = () => {
-    count = (count + 1) % data.length;
+    count = (count + 1) % images.length;
     setIndex(count);
   };
 
   const prevSlide = () => {
-    count = (count + data.length - 1) % data.length;
+    count = (count + images.length - 1) % images.length;
     setIndex(count);
   };
 
   useEffect(() => {
     let autoplay = setTimeout(
-      () => setIndex((prev) => (prev === data.length - 1 ? 0 : prev + 1)),
+      () => setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1)),
       duration
     );
     return () => {
       clearTimeout(autoplay);
     };
-  }, [duration, index]);
+  }, [duration, index, images]);
 
   return (
     <div className="relative w-full select-none h-[400px] md:h-[600px]">
-      <a href={data[index].link} className="relative block w-full h-full">
-        {data.map((item) => (
+      <a href={images[index].link} className="relative block w-full h-full">
+        {images.map((item) => (
           <Image
             key={item.id}
             src={'/assets/projects/' + item.image}

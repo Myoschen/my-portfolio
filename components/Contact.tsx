@@ -4,7 +4,7 @@ import ContactForm from './ContactForm';
 
 export default function Contact() {
   return (
-    <div id="contact" className="min-h-screen my-12">
+    <section id="contact" className="min-h-screen my-12">
       <div className="px-8 mx-auto max-w-7xl">
         <h2 className="flex items-baseline gap-x-2">
           <IonIcon name="link" className="rotate-45 text-primary" />
@@ -33,7 +33,7 @@ export default function Contact() {
             </li>
             <li>
               <a
-                href="mailto:willy14620@gmail.com"
+                href="mailto:myos.chen@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -56,6 +56,6 @@ export default function Contact() {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

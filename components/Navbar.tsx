@@ -1,27 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import IonIcon from '@reacticons/ionicons';
+import useScrollOver from 'hooks/use-scroll-over';
 
 export default function Navbar() {
-  const [shadow, setShadow] = useState<boolean>(false);
+  const [shadow, setShadow] = useState(false);
 
-  useEffect(() => {
-    const scrollOver = () => {
-      if (window.scrollY >= 100) {
-        setShadow(true);
-      } else {
-        setShadow(false);
-      }
-    };
-    window.addEventListener('scroll', scrollOver);
+  const scrollOver = useCallback(() => {
+    if (window.scrollY >= 100) {
+      setShadow(true);
+    } else {
+      setShadow(false);
+    }
   }, []);
 
+  useScrollOver(scrollOver);
+
   return (
-    <div
+    <nav
       className={`${
         shadow && 'shadow-md'
-      } navbar p-4 fixed z-[9999] bg-base-100 transition-all duration-300 ease-in-out`}
+      } navbar py-2 px-4 fixed z-[9999] bg-base-100 transition-all duration-300 ease-in-out`}
     >
       <div className="flex-1">
         <Link href="/">
@@ -41,29 +41,29 @@ export default function Navbar() {
         <ul className="p-0 menu menu-horizontal">
           <li>
             <Link href="/">
-              <span className="text-lg font-medium tracking-wide">HOME</span>
+              <span className="text-lg font-medium tracking-wide">Home</span>
             </Link>
           </li>
           <li>
             <Link href="/#about">
-              <span className="text-lg font-medium tracking-wide">ABOUT</span>
+              <span className="text-lg font-medium tracking-wide">About</span>
             </Link>
           </li>
           <li>
             <Link href="/#skills">
-              <span className="text-lg font-medium tracking-wide">SKILLS</span>
+              <span className="text-lg font-medium tracking-wide">Skills</span>
             </Link>
           </li>
           <li>
             <Link href="/#projects">
               <span className="text-lg font-medium tracking-wide">
-                PROJECTS
+                Projects
               </span>
             </Link>
           </li>
           <li>
             <Link href="/#contact">
-              <span className="text-lg font-medium tracking-wide">CONTACT</span>
+              <span className="text-lg font-medium tracking-wide">Contact</span>
             </Link>
           </li>
         </ul>
@@ -79,38 +79,38 @@ export default function Navbar() {
           >
             <li>
               <Link href="/">
-                <span className="text-lg font-medium tracking-wide">HOME</span>
+                <span className="text-lg font-medium tracking-wide">Home</span>
               </Link>
             </li>
             <li>
               <Link href="#about">
-                <span className="text-lg font-medium tracking-wide">ABOUT</span>
+                <span className="text-lg font-medium tracking-wide">About</span>
               </Link>
             </li>
             <li>
               <Link href="#skills">
                 <span className="text-lg font-medium tracking-wide">
-                  SKILLS
+                  Skills
                 </span>
               </Link>
             </li>
             <li>
               <Link href="#projects">
                 <span className="text-lg font-medium tracking-wide">
-                  PROJECTS
+                  Projects
                 </span>
               </Link>
             </li>
             <li>
               <Link href="#contact">
                 <span className="text-lg font-medium tracking-wide">
-                  CONTACT
+                  Contact
                 </span>
               </Link>
             </li>
           </ul>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }

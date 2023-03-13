@@ -1,24 +1,22 @@
 import IonIcon from '@reacticons/ionicons';
 import Slider from './Slider';
 
-const list = [
+const data = [
   {
-    name: 'react-chat-app',
-    image: undefined,
-    demo: undefined,
-    link: 'https://github.com/Myoschen/react-chat-app',
+    id: 1,
+    image: 'typing-speed.png',
+    link: 'https://github.com/myoschen/typing-speed',
   },
   {
-    name: 'typing-speed',
-    image: '',
-    demo: 'https://typing-speed-seven.vercel.app',
-    link: 'https://github.com/Myoschen/typing-speed',
+    id: 2,
+    image: 'social-media-app.png',
+    link: 'https://github.com/Myoschen/social-media-app',
   },
 ];
 
 export default function Projects() {
   return (
-    <div id="projects" className="min-h-screen my-12">
+    <section id="projects" className="min-h-screen my-12">
       <div className="px-8 mx-auto max-w-7xl">
         <h2 className="flex items-baseline gap-x-2">
           <IonIcon name="link" className="rotate-45 text-primary" />
@@ -31,9 +29,9 @@ export default function Projects() {
           </h3>
         </div>
         <div className="mt-8">
-          <Slider duration={3000} />
+          <Slider images={data} duration={3000} />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

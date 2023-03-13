@@ -1,9 +1,10 @@
 import '../styles/globals.css';
-import type { AppProps } from 'next/app';
-import Navbar from '../components/Navbar';
 import 'react-toastify/dist/ReactToastify.min.css';
+import '@fontsource/roboto';
 import { ToastContainer } from 'react-toastify';
+import Navbar from '../components/Navbar';
 
+import type { AppProps } from 'next/app';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>

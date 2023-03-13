@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { FormEvent, useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -8,27 +8,24 @@ export default function ContactForm() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = useCallback(
-    async (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      try {
-        const response = await axios.post(
-          'https://script.google.com/macros/s/AKfycbxCwwWa_JLcA_uHuhN1Vg7loFFotBg8z8J7H4Tna2s_VnmHYoWX2pcNuccu4rppQqw_Pg/exec',
-          JSON.stringify({
-            name,
-            email,
-            subject,
-            message,
-          }),
-          { headers: { 'Content-Type': 'text/plain;charset=utf-8' } }
-        );
-        toast.success('Success');
-      } catch (err) {
-        if (err instanceof Error) toast.error(`${err.message}`);
-      }
-    },
-    [name, email, subject, message]
-  );
+  const handleSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      // const response = await axios.post(
+      //   'https://script.google.com/macros/s/AKfycbxCwwWa_JLcA_uHuhN1Vg7loFFotBg8z8J7H4Tna2s_VnmHYoWX2pcNuccu4rppQqw_Pg/exec',
+      //   JSON.stringify({
+      //     name,
+      //     email,
+      //     subject,
+      //     message,
+      //   }),
+      //   { headers: { 'Content-Type': 'text/plain;charset=utf-8' } }
+      // );
+      toast.success('Success');
+    } catch (err) {
+      if (err instanceof Error) toast.error(`${err.message}`);
+    }
+  }, []);
 
   return (
     <form className="flex-1 gap-y-4 form-control" onSubmit={handleSubmit}>

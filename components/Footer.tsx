@@ -9,7 +9,7 @@ export default function Footer() {
   };
 
   return (
-    <div className="flex justify-center my-6">
+    <footer className="flex justify-center my-6">
       <button
         className="mx-auto btn gap-x-2 btn-ghost"
         onClick={() => scrollToTop()}
@@ -17,6 +17,6 @@ export default function Footer() {
         <IonIcon name="arrow-up" size="large" />
         <span className="tracking-wide">Go to top</span>
       </button>
-    </div>
+    </footer>
   );
 }

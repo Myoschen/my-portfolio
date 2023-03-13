@@ -4,7 +4,7 @@ import { SiGithub } from 'react-icons/si';
 
 export default function Main() {
   return (
-    <div className="min-h-screen hero">
+    <section className="min-h-screen hero">
       <div className="text-center hero-content">
         <div>
           <h1 className="my-3 text-3xl font-bold tracking-wide select-none md:my-6 md:text-6xl">
@@ -29,7 +29,7 @@ export default function Main() {
             </li>
             <li>
               <a
-                href="mailto:willy14620@gmail.com"
+                href="mailto:myos.chen@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -52,6 +52,6 @@ export default function Main() {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
